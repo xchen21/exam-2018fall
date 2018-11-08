@@ -53,5 +53,48 @@
     </form>
 
 </body>
+<script>
+    function onSubmit(e){
+        e.preventDefault();
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+
+        from = parseInt (from);
+        to = parseInt (to);
+        console.log = (from, to);
+
+        if (!from || !to) {
+      alert('Please enter a valid num!');
+      return;
+    } else if (from <= 0) {
+      alert('from must larger than 0!');
+      return;
+    }else if (to < from) {
+      alert('to must larget than from!');
+      return;
+    }
+
+    // start calculate
+    let prod = 1;
+    for (let i = from; i <= to; i++) {
+      prod *= i;
+    }
+
+    document.getElementById('prod').innerHTML = prod.toString();
+  }
+
+  function onReset(e) {
+    e.preventDefault();
+    document.getElementById('from').value = '';
+    document.getElementById('to').value = '';
+
+
+    document.getElementById('prod').innerHTML = '';
+
+  }
+
+  document.getElementById('submit').addEventListener('click', onSubmit);
+  document.getElementById('reset').addEventListener('click', onReset);
+</script>
 
 </html>

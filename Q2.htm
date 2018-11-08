@@ -27,12 +27,40 @@
             padding: 10px 100px 10px 100px;
             text-align: left;
         }
+        #rocks{
+            color:red;
+            font-size:2em;
+            font-family: lucida Handwriting;
+            background: yellow;
+            visibility: hidden;
+        }
+        #sucks{
+            color:green;
+            font-size: 2em;
+            font-weight: bold;
+            background:blue;
+            font-family: arial;
+            visibility: hidden;
+
+        }
 
     </style>
 
     <script type="text/javascript">
 
-    </script>
+        function onFaceClick(name) {
+          const sucks = document.getElementById('sucks');
+          const rocks = document.getElementById('rocks');
+          if (name == 'rocks') {
+            rocks.style.visibility = 'visible';
+            sucks.style.visibility = 'hidden';
+          } else {
+            rocks.style.visibility = 'hidden';
+            sucks.style.visibility = 'visible';
+          }
+        }
+  
+      </script>
 </head>
 
 <body>
@@ -48,15 +76,16 @@
     </p>
 
     <table>
-        <tr>
-            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
-            <td>Web Tech Rocks!</td>
-        </tr>
-        <tr>
-            <td><img src="frown.jpg" alt="Frown Face" title="Sad"></td>
-            <td>Web Tech Sucks!</td>
-        </tr>
-
-    </table>
+            <tr>
+                <td><img id="smiley" src="smiley.jpg" alt="Smiling Face" title="Smile" onclick="onFaceClick('rocks')"></td>
+                <td id="rocks">Web Tech Rocks!</td>
+            </tr>
+            <tr>
+                <td><img id="frown" src="frown.jpg" alt="Frown Face" title="Sad" onclick="onFaceClick('sucks')"></td>
+                <td id="sucks">Web Tech Sucks!</td>
+            </tr>
+        
+        </table>
 </body>
+
 </html>
